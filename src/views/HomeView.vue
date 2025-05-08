@@ -59,6 +59,10 @@
   const loadProperties = () => {
     isLoading.value = true;
     setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth', // Плавная прокрутка
+      });
       store.setPage(currentPage.value);
       isLoading.value = false;
     }, 1000);
