@@ -16,7 +16,7 @@ const router = useRouter();
 onMounted(() => {
   const map = new maplibregl.Map({
     container: mapContainer.value,
-    style: 'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+    style: 'https://api.maptiler.com/maps/basic-v2/style.json?key=wSG9gcxGtdN9aLlBbies',
     center: [30.5234, 50.4501],
     zoom: 10,
   });
