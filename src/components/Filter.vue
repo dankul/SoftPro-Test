@@ -2,6 +2,7 @@
   <form
       class="w-full flex justify-center gap-5 mb-20"
       @submit.prevent="$emit('getSearchQuery', searchQuery)"
+      @reset="$emit('getSearchQuery', '')"
   >
     <input
       v-model="searchQuery"
@@ -9,9 +10,14 @@
       placeholder="Enter the name or location"
       class="flex-1 rounded border max-w-80 pl-2"
     />
-    <button type="submit" class="flex justify-center w-35 bg-blue-500 text-white py-2 px-4 rounded hover:opacity-75 hover:shadow-md transition duration-300 cursor-pointer">
-      Search
-    </button>
+    <div class="flex gap-2">
+      <button type="submit" class="flex justify-center w-35 bg-blue-500 text-white py-2 px-4 rounded hover:opacity-75 hover:shadow-md transition duration-300 cursor-pointer">
+        Search
+      </button>
+      <button type="reset" class="flex justify-center w-35 border border-blue-500 text-blue-500 py-2 px-4 rounded hover:opacity-75 hover:shadow-md transition duration-300 cursor-pointer">
+        Reset
+      </button>
+    </div>
   </form>
 </template>
 
