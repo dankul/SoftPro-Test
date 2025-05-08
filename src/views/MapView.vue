@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen relative" ref="mapContainer"></div>
+  <div class="w-full map-container" ref="mapContainer"></div>
 </template>
 
 <script setup>
@@ -51,3 +51,9 @@ onMounted(() => {
   })
 });
 </script>
+
+<style scoped>
+  .map-container {
+    height: calc(100vh - 116px);
+  }
+</style>

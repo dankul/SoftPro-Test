@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container pb-10">
     <h1 class="text-4xl font-bold text-center my-8">Welcome to My Real Estate App</h1>
     <p class="text-lg text-center mb-8">Find your dream property with ease.</p>
     <Filter @get-search-query="search" />
