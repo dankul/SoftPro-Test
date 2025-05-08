@@ -51,9 +51,3 @@ onMounted(() => {
   })
 });
 </script>
-
-<style>
-  .maplibregl-marker {
-    cursor: pointer;
-  }
-</style>

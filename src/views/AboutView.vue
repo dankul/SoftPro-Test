@@ -3,7 +3,6 @@
     <iframe
         :src="pdfUrl"
         class="w-full h-full"
-        frameborder="0"
     ></iframe>
   </div>
 </template>
