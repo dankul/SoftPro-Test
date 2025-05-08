@@ -2,11 +2,11 @@ import {ref, computed} from 'vue'
 import {defineStore} from 'pinia'
 
 export const usePropertyStore = defineStore('location', () => {
-	const property = ref([
+	const properties = ref([
 		{
 			'id': '1',
 			'name': 'Wide Loft 1',
-			'description': 'Spacious apartment number 1.',
+			'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 			'price': 99,
 			'location': 'Kyiv Region',
 			'geometry': {'type': 'Point', 'coordinates': [30.857034, 50.201036]}
@@ -162,36 +162,149 @@ export const usePropertyStore = defineStore('location', () => {
 			'price': 140,
 			'location': 'Kyiv Region',
 			'geometry': {'type': 'Point', 'coordinates': [30.419198, 50.480431]}
-		}
+		},
+		{
+			'id': '21',
+			'name': 'Wide Loft 21',
+			'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+			'price': 112,
+			'location': 'Kyiv Region',
+			'geometry': {'type': 'Point', 'coordinates': [30.857034, 50.201036]}
+		},
+		{
+			'id': '22',
+			'name': 'Wide Loft 22',
+			'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+			'price': 151,
+			'location': 'Kyiv Region',
+			'geometry': {'type': 'Point', 'coordinates': [30.857034, 50.201036]}
+		},
+		{
+			'id': '23',
+			'name': 'Wide Loft 23',
+			'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+			'price': 85,
+			'location': 'Kyiv Region',
+			'geometry': {'type': 'Point', 'coordinates': [30.857034, 50.201036]}
+		},
+		{
+			'id': '24',
+			'name': 'Wide Loft 24',
+			'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+			'price': 100,
+			'location': 'Kyiv Region',
+			'geometry': {'type': 'Point', 'coordinates': [30.857034, 50.201036]}
+		},
+		{
+			id: '25',
+			name: 'Modern Loft 1',
+			description: 'Beautiful apartment in Lviv.',
+			price: 120,
+			location: 'Lviv Region',
+			geometry: { type: 'Point', coordinates: [24.031592, 49.842957] }
+		},
+		{
+			id: '26',
+			name: 'Modern Loft 2',
+			description: 'Cozy apartment in Odesa.',
+			price: 130,
+			location: 'Odesa Region',
+			geometry: { type: 'Point', coordinates: [30.732620, 46.482526] }
+		},
+		{
+			id: '27',
+			name: 'Modern Loft 3',
+			description: 'Spacious apartment in Kharkiv.',
+			price: 110,
+			location: 'Kharkiv Region',
+			geometry: { type: 'Point', coordinates: [36.230383, 49.993500] }
+		},
+		{
+			id: '28',
+			name: 'Modern Loft 4',
+			description: 'Stylish apartment in Dnipro.',
+			price: 140,
+			location: 'Dnipro Region',
+			geometry: { type: 'Point', coordinates: [35.045630, 48.464717] }
+		},
+		{
+			id: '29',
+			name: 'Modern Loft 5',
+			description: 'Comfortable apartment in Zaporizhzhia.',
+			price: 115,
+			location: 'Zaporizhzhia Region',
+			geometry: { type: 'Point', coordinates: [35.139567, 47.838800] }
+		},
+		{
+			id: '30',
+			name: 'Modern Loft 6',
+			description: 'Elegant apartment in Vinnytsia.',
+			price: 125,
+			location: 'Vinnytsia Region',
+			geometry: { type: 'Point', coordinates: [28.481013, 49.232780] }
+		},
+		{
+			id: '31',
+			name: 'Modern Loft 7',
+			description: 'Luxury apartment in Ivano-Frankivsk.',
+			price: 150,
+			location: 'Ivano-Frankivsk Region',
+			geometry: { type: 'Point', coordinates: [24.709722, 48.922633] }
+		},
+		{
+			id: '32',
+			name: 'Modern Loft 8',
+			description: 'Charming apartment in Chernihiv.',
+			price: 100,
+			location: 'Chernihiv Region',
+			geometry: { type: 'Point', coordinates: [31.284877, 51.498206] }
+		},
 	]);
 
 	const searchQuery = ref('');
 	const currentPage = ref(1);
-	const itemsPerPage = ref(5);
+	const itemsPerPage = ref(8);
 	const totalPages = computed(() => {
-		return Math.ceil(filteredProperty.value.length / itemsPerPage.value);
+		return Math.ceil(filteredProperties.value.length / itemsPerPage.value);
 	});
 
-	const filteredProperty = computed(() => {
+	const filteredProperties = computed(() => {
 		const query = searchQuery.value.toLowerCase();
-		return property.value.filter(p =>
+		return properties.value.filter(p =>
 			p.name.toLowerCase().includes(query) ||
 			p.location.toLowerCase().includes(query)
 		);
 	});
 
-	const paginatedProperty = computed(() => {
+	const paginatedProperties = computed(() => {
 		const start = (currentPage.value - 1) * itemsPerPage.value;
-		return filteredProperty.value.slice(start, start + itemsPerPage.value);
+		return filteredProperties.value.slice(start, start + itemsPerPage.value);
 	});
 
+	const setPage = (page) =>  {
+		if (page >= 1 && page <= totalPages.value) {
+			currentPage.value = page;
+		}
+	}
+
+	const setSearchQuery = (query) => {
+		searchQuery.value = query;
+	}
+
+	const getSingleProperty = (id) => {
+		return properties.value.find(p => p.id === id);
+	}
+
 	return {
-		property,
+		properties,
 		searchQuery,
 		currentPage,
 		totalPages,
 		itemsPerPage,
-		filteredProperty,
-		paginatedProperty,
+		filteredProperties,
+		paginatedProperties,
+		setPage,
+		setSearchQuery,
+		getSingleProperty,
 	};
 })
